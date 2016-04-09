@@ -77,11 +77,11 @@ class Command:
         id_edit = 1
         id_ok = 2
         id_cancel = 3
-        res = dlg_custom('Install from Github', 506, 90, '\n'.join([]
+        res = dlg_custom('Install from Github', 456, 90, '\n'.join([]
           + [c1.join(['type=label', 'cap=&Github repo URL', 'pos=6,6,400,0'])]
-          + [c1.join(['type=combo', 'items='+'\t'.join(list_hist), 'pos=6,26,500,0'])]
-          + [c1.join(['type=button', 'cap=OK', 'pos=296,60,396,0', 'props=1'])]
-          + [c1.join(['type=button', 'cap=Cancel', 'pos=400,60,500,0'])]
+          + [c1.join(['type=combo', 'items='+'\t'.join(list_hist), 'pos=6,26,450,0'])]
+          + [c1.join(['type=button', 'cap=OK', 'pos=246,60,346,0', 'props=1'])]
+          + [c1.join(['type=button', 'cap=Cancel', 'pos=350,60,450,0'])]
           ))
         if not res: return
         btn, text = res
