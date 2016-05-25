@@ -79,7 +79,7 @@ class Command:
         id_cancel = 3
         res = dlg_custom('Install from Github', 456, 90, '\n'.join([]
           + [c1.join(['type=label', 'cap=&Github repo URL', 'pos=6,6,400,0'])]
-          + [c1.join(['type=combo', 'items='+'\t'.join(list_hist), 'pos=6,26,450,0'])]
+          + [c1.join(['type=combo', 'items='+'\t'.join(list_hist), 'pos=6,26,450,0', 'cap='+list_hist[0]])]
           + [c1.join(['type=button', 'cap=OK', 'pos=246,60,346,0', 'props=1'])]
           + [c1.join(['type=button', 'cap=Cancel', 'pos=350,60,450,0'])]
           ))
@@ -118,8 +118,10 @@ class Command:
         dir_from = os.path.join(dir, os.listdir(dir)[0])
         do_install_from_dir(dir_from)
 
-        #save history        
-        if not url in list_hist:
-            list_hist = [url]+list_hist
-            with open(fn_hist, 'w') as f:
-                f.write('\n'.join(list_hist))
+        #move new url to 1st item
+        if url in list_hist:
+            list_hist.remove(url)
+        list_hist = [url]+list_hist
+        #save history
+        with open(fn_hist, 'w') as f:
+            f.write('\n'.join(list_hist))
