@@ -1,4 +1,7 @@
 
+2016.10.22
++ smaller code (for new app)
+
 2016.05.25
 + show last item in edit
 
